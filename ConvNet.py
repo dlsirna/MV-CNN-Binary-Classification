@@ -33,6 +33,7 @@ classifier.add(MaxPooling2D(pool_size = (2, 2)))
 classifier.add(Flatten())
 
 # Step 4 - Building the Fully Connected Layer
+#two fully connected layers, the first with an binary output to make a our decision values pretty and the second with a Classification(dog/cat) output
 classifier.add(Dense(units = 128, activation = 'relu'))
 classifier.add(Dense(units = 1, activation = 'sigmoid'))
 
@@ -42,7 +43,7 @@ classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = [
 # Part 2 - Fitting the ConvNet to the Images
 
 from keras.preprocessing.image import ImageDataGenerator
-# ..... Fill the Rest (a Few Lines of Code!)
+
 # generator maximises our training smaple data
 train_datagen = ImageDataGenerator(rescale = 1./255,shear_range = 0.2,zoom_range = 0.2,horizontal_flip = True)
 
